@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costelão de Ipanema</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="IMG_2058.jpeg" alt="Costelão de Ipanema Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">INÍCIO</a></li>
+                <li><a href="#">SOBRE</a></li>
+                <li><a href="#">CARDÁPIO</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="overlay"></div>
+            <img src="background_costela.jpg" alt="Costela Premium" class="background-image">
+            <div class="content">
+                <p class="restaurant-name">RESTAURANTE</p>
+                <h1>VOCÊ VEIO PELA COSTELA, NÉ?</h1>
+                <a href="#cardapio" class="button">VER CARDÁPIO</a>
+                <a href="https://www.google.com/maps/place/Costel%C3%A3o+de+Ipanema+%28em+Pontal+do+Paran%C3%A1%29+-+R.+S%C3%A3o+Lu%C3%ADs,+585,+Pontal+do+Paran%C3%A1+-+PR,+83255-000" target="_blank" class="button">ROTAS</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Rodapé futuro -->
+    </footer>
+</body>
+</html>
+
+
+
+    <section id="cardapio" class="menu-section">
+        <h2>Cardápio do Buffet</h2>
+        <div class="menu-tabs">
+            <button class="tab-button active" onclick="openMenu(event, 'salada')">Buffet de Salada</button>
+            <button class="tab-button" onclick="openMenu(event, 'pratos-quentes')">Buffet de Pratos Quentes</button>
+        </div>
+
+        <div id="salada" class="menu-content">
+            <h3>Buffet de Salada</h3>
+            <p>Horário: <span id="salada-horario"></span></p>
+            <p>Valor: <span id="salada-valor"></span></p>
+            <div id="salada-items"></div>
+        </div>
+
+        <div id="pratos-quentes" class="menu-content" style="display:none;">
+            <h3>Buffet de Pratos Quentes</h3>
+            <p>Horário: <span id="pratos-quentes-horario"></span></p>
+            <p>Valor: <span id="pratos-quentes-valor"></span></p>
+            <div id="pratos-quentes-items"></div>
+        </div>
+
+        <div class="day-selector">
+            <label for="day-select">Selecione o dia:</label>
+            <select id="day-select" onchange="updateMenuForDay()">
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+                <option value="sabado">Sábado</option>
+                <option value="domingo">Domingo</option>
+            </select>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        const menuData = {
+            "terca": {
+                "salada": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 35,00",
+                    "items": ["Alface", "Tomate", "Cenoura", "Beterraba", "Molhos variados"]
+                },
+                "pratos-quentes": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 60,00",
+                    "items": ["Costela Assada", "Arroz Branco", "Feijão Tropeiro", "Macarrão ao Sugo"]
+                }
+            },
+            "quarta": {
+                "salada": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 35,00",
+                    "items": ["Rúcula", "Agrião", "Tomate Seco", "Queijo Branco", "Molho Pesto"]
+                },
+                "pratos-quentes": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 60,00",
+                    "items": ["Costela no Bafo", "Arroz Integral", "Purê de Batata", "Legumes Salteados"]
+                }
+            },
+            "quinta": {
+                "salada": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 35,00",
+                    "items": ["Mix de Folhas", "Pepino", "Palmito", "Grão de Bico", "Molho de Mostarda e Mel"]
+                },
+                "pratos-quentes": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 60,00",
+                    "items": ["Costela com Mandioca", "Arroz à Grega", "Farofa", "Frango Grelhado"]
+                }
+            },
+            "sexta": {
+                "salada": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 35,00",
+                    "items": ["Alface Americana", "Croutons", "Queijo Parmesão", "Molho Caesar"]
+                },
+                "pratos-quentes": {
+                    "horario": "11:00 - 15:00",
+                    "valor": "R$ 60,00",
+                    "items": ["Costela no Forno", "Arroz Carreteiro", "Batata Frita", "Bife Acebolado"]
+                }
+            },
+            "sabado": {
+                "salada": {
+                    "horario": "12:00 - 16:00",
+                    "valor": "R$ 40,00",
+                    "items": ["Salada Completa", "Maionese de Legumes", "Salpicão"]
+                },
+                "pratos-quentes": {
+                    "horario": "12:00 - 16:00",
+                    "valor": "R$ 70,00",
+                    "items": ["Costela de Chão", "Arroz Branco", "Feijão Preto", "Linguiça", "Torresmo"]
+                }
+            },
+            "domingo": {
+                "salada": {
+                    "horario": "12:00 - 16:00",
+                    "valor": "R$ 40,00",
+                    "items": ["Salada da Casa", "Tabule", "Cuscuz Marroquino"]
+                },
+                "pratos-quentes": {
+                    "horario": "12:00 - 16:00",
+                    "valor": "R$ 70,00",
+                    "items": ["Costela Recheada", "Arroz à Piamontese", "Farofa de Bacon", "Lasanha"]
+                }
+            }
+        };
+
+        function openMenu(evt, menuName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("menu-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(menuName).style.display = "block";
+            evt.currentTarget.className += " active";
+            updateMenuForDay(); // Atualiza o menu ao trocar de aba
+        }
+
+        function updateMenuForDay() {
+            const selectedDay = document.getElementById("day-select").value;
+            const saladaData = menuData[selectedDay]["salada"];
+            const pratosQuentesData = menuData[selectedDay]["pratos-quentes"];
+
+            document.getElementById("salada-horario").innerText = saladaData.horario;
+            document.getElementById("salada-valor").innerText = saladaData.valor;
+            document.getElementById("salada-items").innerHTML = saladaData.items.map(item => `<p>${item}</p>`).join("");
+
+            document.getElementById("pratos-quentes-horario").innerText = pratosQuentesData.horario;
+            document.getElementById("pratos-quentes-valor").innerText = pratosQuentesData.valor;
+            document.getElementById("pratos-quentes-items").innerHTML = pratosQuentesData.items.map(item => `<p>${item}</p>`).join("");
+        }
+
+        // Inicializa o menu para o dia atual ou um padrão
+        document.addEventListener("DOMContentLoaded", function() {
+            const today = new Date();
+            const dayOfWeek = today.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+            let defaultDay = "terca";
+
+            if (dayOfWeek === 1) { // Segunda-feira (folga coletiva)
+                document.getElementById("day-select").innerHTML = `<option value="terca">Terça-feira</option>`;
+                alert("O restaurante está fechado às segundas-feiras para folga coletiva.");
+            } else {
+                const daysMap = {
+                    0: "domingo",
+                    2: "terca",
+                    3: "quarta",
+                    4: "quinta",
+                    5: "sexta",
+                    6: "sabado"
+                };
+                defaultDay = daysMap[dayOfWeek] || "terca";
+            }
+            document.getElementById("day-select").value = defaultDay;
+            updateMenuForDay();
+            document.querySelector(".tab-button").click(); // Ativa a primeira aba por padrão
+        });
+    </script>
+
+
+
+
+    <section id="reservas" class="reservation-section">
+        <h2>Reserva de Mesas</h2>
+        <div class="reservation-form">
+            <div class="form-group">
+                <label for="table-number">Número da Mesa:</label>
+                <select id="table-number"></select>
+            </div>
+            <div class="form-group">
+                <label for="arrival-time">Horário de Chegada:</label>
+                <input type="time" id="arrival-time" value="19:00">
+            </div>
+            <div class="form-group">
+                <label for="num-people">Quantas Pessoas:</label>
+                <input type="number" id="num-people" min="1" value="1" onchange="calculateTotal()">
+            </div>
+            <div class="form-group">
+                <label for="client-name">Seu Nome (Opcional):</label>
+                <input type="text" id="client-name">
+            </div>
+            <div class="form-group">
+                <p>Valor Total: R$ <span id="total-value">0.00</span></p>
+            </div>
+            <div class="form-group">
+                <label>Opções de Pagamento:</label>
+                <div>
+                    <input type="radio" id="pay-now" name="payment-option" value="pay-now" checked>
+                    <label for="pay-now">Pagar na Hora (Gerar QR Code PIX)</label>
+                </div>
+                <div>
+                    <input type="radio" id="pay-reserve" name="payment-option" value="pay-reserve">
+                    <label for="pay-reserve">Deixar Pago no Momento da Reserva</label>
+                </div>
+            </div>
+            <button class="button" onclick="makeReservation()">Fazer Reserva</button>
+        </div>
+        <p>Mesas Disponíveis: <span id="available-tables">78</span></p>
+    </section>
+
+
+
+
+    <script>
+        let availableTables = 78;
+        const tablePricePerPerson = 20.00;
+
+        function populateTableNumbers() {
+            const tableSelect = document.getElementById("table-number");
+            tableSelect.innerHTML = "";
+            for (let i = 1; i <= availableTables; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.innerText = `Mesa ${i}`;
+                tableSelect.appendChild(option);
+            }
+            document.getElementById("available-tables").innerText = availableTables;
+        }
+
+        function calculateTotal() {
+            const numPeople = parseInt(document.getElementById("num-people").value);
+            const totalValue = numPeople * tablePricePerPerson;
+            document.getElementById("total-value").innerText = totalValue.toFixed(2);
+        }
+
+        function makeReservation() {
+            const tableNumber = document.getElementById("table-number").value;
+            const arrivalTime = document.getElementById("arrival-time").value;
+            const numPeople = document.getElementById("num-people").value;
+            const clientName = document.getElementById("client-name").value;
+            const paymentOption = document.querySelector("input[name=\"payment-option\"]:checked").value;
+
+            if (!tableNumber || !arrivalTime || !numPeople) {
+                alert("Por favor, preencha todos os campos obrigatórios (Número da Mesa, Horário de Chegada, Quantas Pessoas).");
+                return;
+            }
+
+            if (availableTables > 0) {
+                availableTables--;
+                populateTableNumbers();
+                alert(`Reserva da Mesa ${tableNumber} para ${numPeople} pessoas às ${arrivalTime} feita com sucesso!\nOpção de Pagamento: ${paymentOption === 'pay-now' ? 'Pagar na Hora' : 'Deixar Pago na Reserva'}\nValor Total: R$ ${document.getElementById("total-value").innerText}`);
+
+                if (paymentOption === 'pay-now') {
+                    // Simula a geração de QR Code PIX
+                    alert("QR Code PIX gerado! (Simulação)");
+                }
+            } else {
+                alert("Não há mesas disponíveis para reserva.");
+            }
+        }
+
+        // Inicializa a reserva de mesas
+        document.addEventListener("DOMContentLoaded", function() {
+            populateTableNumbers();
+            calculateTotal();
+        });
+    </script>
+
+
+
+
+    <section id="avaliacoes" class="reviews-section">
+        <h2>Avaliações</h2>
+        <div class="review-form">
+            <div class="form-group">
+                <label for="review-text">Sua Avaliação:</label>
+                <textarea id="review-text" rows="5" placeholder="Escreva sua avaliação aqui..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rating">Pontuação (1-10):</label>
+                <input type="number" id="rating" min="1" max="10" value="5">
+            </div>
+            <button class="button" onclick="submitReview()">Enviar Avaliação</button>
+        </div>
+        <div class="reviews-list">
+            <h3>Avaliações dos Clientes</h3>
+            <div id="customer-reviews"></div>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        const profanityList = ["palavrão1", "palavrão2"]; // Exemplo de lista de palavrões
+
+        function filterProfanity(text) {
+            let filteredText = text;
+            profanityList.forEach(word => {
+                const regex = new RegExp(word, "gi");
+                filteredText = filteredText.replace(regex, "****");
+            });
+            return filteredText;
+        }
+
+        function submitReview() {
+            const reviewText = document.getElementById("review-text").value;
+            const rating = document.getElementById("rating").value;
+
+            if (!reviewText || !rating) {
+                alert("Por favor, preencha o texto da avaliação e a pontuação.");
+                return;
+            }
+
+            const filteredReviewText = filterProfanity(reviewText);
+
+            const reviewItem = document.createElement("div");
+            reviewItem.classList.add("review-item");
+            reviewItem.innerHTML = `
+                <p><strong>Avaliação:</strong> ${filteredReviewText}</p>
+                <p class="rating"><strong>Pontuação:</strong> ${rating}/10</p>
+            `;
+
+            document.getElementById("customer-reviews").prepend(reviewItem);
+
+            // Limpar formulário
+            document.getElementById("review-text").value = "";
+            document.getElementById("rating").value = "5";
+
+            alert("Sua avaliação foi enviada com sucesso!");
+        }
+    </script>
+
+
+
+
+    <section id="admin" class="admin-section">
+        <h2>Área do Administrador</h2>
+        <div class="admin-login">
+            <h3>Login</h3>
+            <div class="form-group">
+                <label for="admin-email">Email (Gmail autorizado):</label>
+                <input type="email" id="admin-email" placeholder="seuemail@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="admin-password">Senha:</label>
+                <input type="password" id="admin-password">
+            </div>
+            <button class="button" onclick="adminLogin()">Entrar</button>
+        </div>
+
+        <div id="admin-panel" class="admin-panel" style="display:none;">
+            <h3>Painel de Controle</h3>
+            <p>Bem-vindo, administrador!</p>
+            <!-- Funcionalidades do administrador serão adicionadas aqui -->
+            <h4>Editar Conteúdo</h4>
+            <ul>
+                <li>Editar Cardápios Diários</li>
+                <li>Editar Dias de Folga Coletiva</li>
+                <li>Gerenciar Fotos de Fundo e Imagens dos Pratos</li>
+                <li>Alterar Paleta de Cores do Site</li>
+                <li>Upload de Imagens</li>
+                <li>Linkar QR Code do Site ao PIX do Restaurante</li>
+            </ul>
+
+            <h4>Relatórios e Análises</h4>
+            <ul>
+                <li>Número de Acessos ao Site por Dia</li>
+                <li>Dias com Melhor e Pior Avaliação</li>
+                <li>Dias com Maior Número de Reservas</li>
+                <li>Mesas Reservadas por Dia</li>
+            </ul>
+
+            <h4>Área Protegida (Lucro)</h4>
+            <div class="form-group">
+                <label for="profit-password">Senha para Lucro:</label>
+                <input type="password" id="profit-password">
+                <button class="button" onclick="showProfit()">Ver Lucro</button>
+            </div>
+            <div id="profit-display" style="display:none;">
+                <p>Lucro Total do Site: R$ <span id="total-profit"></span></p>
+                <p>Comparativo de Lucros por Mês (Gráfico/Texto)</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        function adminLogin() {
+            const email = document.getElementById("admin-email").value;
+            const password = document.getElementById("admin-password").value;
+
+            // Simulação de login
+            if (email === "admin@gmail.com" && password === "admin123") {
+                document.getElementById("admin-login").style.display = "none";
+                document.getElementById("admin-panel").style.display = "block";
+                alert("Login de administrador bem-sucedido!");
+            } else {
+                alert("Email ou senha incorretos.");
+            }
+        }
+
+        function showProfit() {
+            const profitPassword = document.getElementById("profit-password").value;
+
+            // Simulação de senha para lucro
+            if (profitPassword === "lucro123") {
+                document.getElementById("total-profit").innerText = "15.000,00"; // Exemplo de valor
+                document.getElementById("profit-display").style.display = "block";
+                alert("Acesso ao lucro concedido!");
+            } else {
+                alert("Senha incorreta para acesso ao lucro.");
+            }
+        }
+    </script>
+
+

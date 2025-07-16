@@ -1,0 +1,115 @@
+Perfeito! Agora que você finalizou, aqui está o **prompt completo** para gerar o site profissional do **Costelão de Ipanema**, no estilo **premium e elegante**, com todos os recursos que você pediu:
+
+---
+
+## 🧠 **Prompt completo para criação do site – Costelão de Ipanema**
+
+> Crie um site moderno, elegante e totalmente responsivo para o restaurante **Costelão de Ipanema**, localizado na **Praia de Ipanema, no litoral do Paraná**.
+>
+> ### 🎨 **Estilo visual:**
+>
+> * Tema premium e sofisticado.
+> * Cores predominantes: **preto, vermelho escuro, branco e dourado discreto**.
+> * Fonte: elegante, como **Playfair Display, Lora ou Cormorant**.
+> * Layout com foco em fotos grandes, fundo escuro, animações suaves e ícones refinados.
+> * A logo enviada (imagem incluída) deve aparecer no topo (header).
+>
+> ### 🧩 **Seções e funcionalidades do site (usuário):**
+>
+> #### 🏠 Página inicial:
+>
+> * Destaque para o slogan: **“Você cê veio pela costela né?”**
+> * Imagem de fundo com prato de costela premium.
+> * Botão com rolagem suave para outras seções.
+>
+> #### 📅 **Cardápio do Buffet:**
+>
+> * Dividido em dois menus:
+>
+>   * **Buffet de salada**
+>   * **Buffet de pratos quentes (carne, arroz, macarrão etc.)**
+> * Cardápio **dinâmico por dia da semana**, exceto **segunda-feira (folga coletiva)**.
+> * Deve mostrar:
+>
+>   * Horário de início do buffet em cada dia.
+>   * Valor do buffet (por pessoa) em cada dia.
+>
+> #### 🪑 **Reserva de Mesas:**
+>
+> * Total de **78 mesas disponíveis**.
+> * Cliente poderá:
+>
+>   * Escolher o **número da mesa**
+>   * Informar **horário de chegada**
+>   * Informar **quantas pessoas vão acompanhá-lo**
+>   * Informar (opcionalmente) o **nome**
+>   * Ver o **valor total automaticamente (R\$ 20,00 por pessoa)**
+> * Escolher se quer:
+>
+>   * **Pagar na hora** (gera QR Code com PIX do restaurante, valor livre)
+>   * Ou **deixar pago no momento da reserva**
+> * Quando a reserva for feita:
+>
+>   * O número da mesa **some da lista de disponíveis**
+>   * O total de reservas disponíveis **é atualizado automaticamente**
+>
+> #### 🗺️ **Botão "Rotas":**
+>
+> * Deve ser um botão com o texto **“Rotas”**
+> * Ao clicar, o usuário é redirecionado para o Google Maps na seguinte localização:
+>   [https://www.google.com/maps/place/Costelão+de+Ipanema…](https://www.google.com/maps/place/Costel%C3%A3o+de+Ipanema+%28em+Pontal+do+Paran%C3%A1%29+-+R.+S%C3%A3o+Lu%C3%ADs,+585,+Pontal+do+Paran%C3%A1+-+PR,+83255-000)
+>
+> #### 🌟 **Avaliações:**
+>
+> * Campo de texto onde o cliente pode avaliar:
+>
+>   * Atendimento
+>   * Localização
+>   * Qualidade da comida
+> * **Filtro de linguagem**: bloquear palavrões automaticamente.
+> * Sistema de **pontuação de 1 a 10** para o restaurante.
+>
+> ---
+>
+> ### 🔐 **Área do administrador:**
+>
+> #### Login seguro:
+>
+> * Apenas um **e-mail autorizado (Gmail)** pode acessar o painel.
+>
+> #### Funcionalidades:
+>
+> * Editar:
+>
+>   * Cardápios diários (itens, horários e preços)
+>   * Dias de folga coletiva
+>   * Fotos de fundo, imagens dos pratos
+>   * Paleta de cores do site
+> * **Upload de imagens** (do PC ou celular) para atualizar pratos do buffet
+> * **Linkar o QR Code do site ao PIX do restaurante**
+> * Ver **número de acessos ao site por dia**
+> * Acompanhar:
+>
+>   * Dias com melhor e pior avaliação
+>   * Dias com maior número de reservas
+>   * Quantas mesas foram reservadas em cada dia
+> * Área protegida por senha para:
+>
+>   * Visualizar o **lucro total do site (em gráfico e texto)**
+>   * Comparar lucros por mês (meses mais e menos rentáveis)
+
+---
+
+Esse prompt pode ser usado em:
+
+* **Ferramentas de IA para sites (ex: Framer AI, Wix ADI, WordPress com plugins de IA)**
+* **Plataformas de desenvolvimento com inteligência artificial (ex: GPT Engineer, Vercel, Webflow + AI)**
+* **Equipes de programação ou agências para briefing detalhado**
+
+Se quiser, posso agora:
+
+* Gerar um **wireframe visual** com base nesse briefing
+* Gerar o **HTML/CSS inicial com esse layout**
+* Criar um **mockup** da home page com a logo e visual sugerido
+
+É só me dizer o que você quer a seguir!
